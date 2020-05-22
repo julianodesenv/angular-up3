@@ -3,7 +3,7 @@
   <div class="col-md-12">
     <div class="form-group">
       <label>Nome</label>
-      <input type="text" class="form-control" [(ngModel)]="name">
+      <input type="text" class="form-control" [(ngModel)]="employee.name">
     </div>
   </div>
 </div>
@@ -11,7 +11,15 @@
   <div class="col-md-12">
     <div class="form-group">
       <label>Salário</label>
-      <input type="text" class="form-control" [(ngModel)]="salary">
+      <input type="number" class="form-control" [(ngModel)]="employee.salary">
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="employee.salary < 1000">
+  <div class="col-md-12">
+    <div class="form-group">
+      <label>Bônus</label>
+      <input type="number" class="form-control" [(ngModel)]="employee.bonus">
     </div>
   </div>
 </div>

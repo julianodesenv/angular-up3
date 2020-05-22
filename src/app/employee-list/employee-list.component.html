@@ -2,13 +2,20 @@
 <h1 class="mt-2">Listagem dos empregados</h1>
 <table class="table mt-2">
   <thead>
+    <th>#</th>
     <th>Nome</th>
     <th>Salário</th>
+    <th>Bôbus</th>
   </thead>
   <tbody>
-    <tr *ngFor="let employee of employees">
+    <tr *ngFor="let employee of employeeService.employees; let i=index">
+      <td>{{i}}</td>
       <td>{{employee.name}}</td>
-      <td [innerHTML]="employee.salary"></td>
+      <!--
+      <td [style.color]="getSalaryColor(employee)">{{employee.salary}}</td>
+      -->
+      <td [ngClass]="{'salary-expensive': employee.salary > 2000, 'salary-cheep' : employee.salary == 0}">{{employee.salary}}</td>
+      <td>{{employee.bonus}}</td>
     </tr>
   </tbody>
 </table>
